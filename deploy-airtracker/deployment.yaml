@@ -80,4 +80,4 @@ spec:
       imagePullSecrets:
       - name: regcred
       nodeSelector:
-         kubernetes.io/hostname: <NODENAME>
+        kubernetes.io/hostname: <NODENAME>

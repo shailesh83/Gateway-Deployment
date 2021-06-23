@@ -4,17 +4,17 @@ metadata:
   name:  <APPLICATIONNAME>
   namespace: <NAMESPACE>
   labels:
-    app: oisp-testsensor-sensor
+    app: <APPLICATIONNAME>-oisp-testsensor-sensor
 spec:
   selector:
     matchLabels:
-      app: oisp-testsensor-sensor
+      app: <APPLICATIONNAME>-oisp-testsensor-sensor
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: oisp-testsensor-sensor
+        app: <APPLICATIONNAME>-oisp-testsensor-sensor
     spec:
       containers:
       - name: oisp-iot-agent
@@ -24,7 +24,7 @@ spec:
           - name: OISP_DEVICE_ACTIVATION_CODE
             valueFrom:
               secretKeyRef:
-                name: global-devices-secret
+                name: <APPLICATIONNAME>-global-devices-secret
                 key: activation-code
         volumeMounts:
           - name: oisp-devices-config-volume

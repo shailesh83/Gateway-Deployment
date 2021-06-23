@@ -4,21 +4,22 @@ metadata:
   name:  <APPLICATIONNAME>
   namespace: <NAMESPACE>
   labels:
-    app: oisp-testsensor-sensor
+    app: <APPLICATIONNAME>-oisp-testsensor-sensor
 spec:
   selector:
     matchLabels:
-      app: oisp-testsensor-sensor
+      app: <APPLICATIONNAME>-oisp-testsensor-sensor
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: oisp-testsensor-sensor
+        app: <APPLICATIONNAME>-oisp-testsensor-sensor
     spec:
       containers:
       - name: busybox
         image: docker.io/busybox:latest
+        imagePullPolicy: Always
         command: ["sleep"]
         args: ["100000000"]
       - name: oisp-iot-agent
@@ -28,7 +29,7 @@ spec:
           - name: OISP_DEVICE_ACTIVATION_CODE
             valueFrom:
               secretKeyRef:
-                name: global-devices-secret
+                name: <APPLICATIONNAME>-global-devices-secret
                 key: activation-code
         volumeMounts:
           - name: oisp-devices-config-volume
@@ -39,6 +40,7 @@ spec:
         imagePullPolicy: Always
       - name: fusiongatewayapp
         image: docker.io/ibn40/fusiongatewayapp:v0.3
+        imagePullPolicy: Always
         env:
           - name: server.port
             value: "8081"
@@ -56,7 +58,7 @@ spec:
       volumes:
         - name: oisp-devices-config-volume
           configMap:
-            name: global-devices-config
+            name: <APPLICATIONNAME>-global-devices-config
             items:
             - key: config.json
               path: config.json
