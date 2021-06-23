@@ -8,13 +8,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: oisp-testsensor-sensor
+      app: <APPLICATIONNAME>-oisp-testsensor-sensor
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: oisp-testsensor-sensor
+        app: <APPLICATIONNAME>-oisp-testsensor-sensor
     spec:
       containers:
       - name: busybox
