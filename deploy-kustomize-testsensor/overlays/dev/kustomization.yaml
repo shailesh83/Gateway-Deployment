@@ -1,0 +1,6 @@
+bases:
+- ../../base
+patches:
+- deployment.yaml
+- pvc.yaml
+- sensorSpecs.json
