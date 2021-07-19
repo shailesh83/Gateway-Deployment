@@ -1,6 +1,8 @@
-bases:
-- ../../base
-patches:
+resources:
 - deployment.yaml
 - pvc.yaml
 - sensorSpecs.json
+- configmap.yaml
+- globalconfigmap.yaml
+- globalsecret.yaml
+- config.json
