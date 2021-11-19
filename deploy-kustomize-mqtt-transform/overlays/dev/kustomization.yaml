@@ -1,7 +1,6 @@
 resources:
 - deployment.yaml
-- <APPLICATIONNAME>-testsensor-config.yaml
+- <APPLICATIONNAME>-global-devices-config.yaml
 - <APPLICATIONNAME>-global-devices-secret.yaml
 - <APPLICATIONNAME>-pvc-device-data.yml
-- <APPLICATIONNAME>-app-config.yaml
-
+- <APPLICATIONNAME>-testsensor-config.yaml
