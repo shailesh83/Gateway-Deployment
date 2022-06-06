@@ -43,7 +43,10 @@ spec:
           - name: testsensor-config
             mountPath: /etc/oisp
         resources:
-          limits:
+           requests:
+              memory: "32Mi"
+           limits:
+              memory: "128Mi"
       volumes:
         - name: oisp-devices-config-volume
           configMap:
